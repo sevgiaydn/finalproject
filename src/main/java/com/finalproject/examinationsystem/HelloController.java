@@ -8,7 +8,7 @@ public class HelloController {
 
     @RequestMapping("/")
     public String index() {
-        return "Hello World!ddddddd!";
+        return "Greetings from Azure Spring Cloud!";
     }
 
 }
