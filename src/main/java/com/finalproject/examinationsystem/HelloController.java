@@ -1,14 +1,26 @@
 package com.finalproject.examinationsystem;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
 public class HelloController {
 
-    @RequestMapping("/")
-    public String index() {
-        return "BULUT FINAL";
+    @GetMapping("group1")
+    @ResponseBody
+    @PreAuthorize("hasRole('ROLE_group1')")
+    public String group1() {
+        return "Hello Group 1 Users!";
+    }
+
+    @GetMapping("group2")
+    @ResponseBody
+    @PreAuthorize("hasRole('ROLE_group2')")
+    public String group2() {
+        return "Hello Group 2 Users!";
     }
 
 }
